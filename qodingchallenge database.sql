@@ -142,6 +142,7 @@ create table QUESTION
    QUESTION             varchar(255) not null,
    STATE                bool not null,
    QUESTION_TYPE        varchar(255),
+   ATTACHEMENT          varchar(4096),
    primary key (QUESTIONID)
 );
 
