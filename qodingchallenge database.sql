@@ -251,7 +251,7 @@ insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (1, 'Jax');
 insert into PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, NAME) values (1, 'HC2 Holdings, Inc.');
 
 insert into STATE (STATEID, STATE_NAME) values (1, 'pending');
-insert into STATE (STATEID, STATE_NAME) values (1, 'correct');
-insert into STATE (STATEID, STATE_NAME) values (1, 'incorrect');
+insert into STATE (STATEID, STATE_NAME) values (2, 'correct');
+insert into STATE (STATEID, STATE_NAME) values (3, 'incorrect');
 
 insert into GIVEN_ANSWER (QUESTIONID, PARTICIPANTID, NAME, STATEID, GIVEN_ANSWER) values (3, 1, 'HC2 Holdings, Inc.', 1, 'A');
