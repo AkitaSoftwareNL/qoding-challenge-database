@@ -266,9 +266,9 @@ insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_qu
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc.','.NET', 'conferentie','hcollerd1', 2, 2, true);
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
 
-insert into question (questionID, category_name, question, state) values (1, 'JAVA', 'Wat is de outpuut van het draaien van de main methode in klasse B voor de volgende code', 1);
-insert into question (questionID, category_name, question, state) values (2, 'JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1);
-insert into question (questionID, category_name, question, state) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1);
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de outpuut van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (2, 'JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
 
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Ja', 1);
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Nee', 0);
