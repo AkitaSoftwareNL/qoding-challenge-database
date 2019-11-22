@@ -153,6 +153,14 @@ create table STATE
    primary key (STATEID)
 );
 
+create table TMP_MULTIPLE_CHOICE_QUESTION
+(
+   QUESTIONID           smallint not null,
+   ANSWER_OPTIONS       varchar(255) not null,
+   IS_CORRECT           bool not null,
+   primary key (QUESTIONID, ANSWER_OPTIONS)
+);
+
 alter table CAMPAIGN add constraint FK_CAMPAIGN_TYPE_OF_CAMPAIGN foreign key (CAMPAIGN_TYPE)
       references CAMPAIGN_TYPE (CAMPAIGN_TYPE) on delete restrict on update restrict;
 
@@ -220,6 +228,26 @@ Begin
         end if;
     end if;
 end;
+
+CREATE PROCEDURE SP_multiplechoice_answers (IN question_id INT)
+BEGIN
+
+    IF ((SELECT COUNT(*) FROM tmp_multiple_choice_question where QUESTIONID = question_id) < 2) THEN
+        DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
+        signal sqlstate '45000' set message_text = 'A multiple choice question must have two or more answers';
+    end if;
+
+    IF((SELECT count(*) from tmp_multiple_choice_question where QUESTIONID = question_id AND IS_CORRECT = 1) != 1) THEN
+        DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
+        signal sqlstate '45000' set message_text = 'There cannot be more or less then one correct answer';
+    end if;
+
+    INSERT INTO multiple_choice_question
+    SELECT * FROM tmp_multiple_choice_question
+    where QUESTIONID = question_id;
+
+    DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
+END;
 
 insert into employee (username, password) values ('admin', 'password123');
 insert into employee (username, password) values ('hcollerd1', 'mbownde1');
