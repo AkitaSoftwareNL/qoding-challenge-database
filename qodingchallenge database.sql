@@ -142,7 +142,7 @@ create table QUESTION
    QUESTION             varchar(255) not null,
    STATE                bool not null,
    QUESTION_TYPE        varchar(255),
-   ATTACHEMENT          varchar(4096),
+   ATTACHMENT           varchar(4096),
    primary key (QUESTIONID)
 );
 
@@ -216,7 +216,7 @@ alter table conference add constraint CHK_PHONE_EMAIL CHECK ((email IS NOT NULL)
 
 alter table campaign add constraint CHK_CAMPAIGN_TIMELIMIT CHECK ((TIMELIMIT is null) || (TIMELIMIT > 0));
 
-CREATE trigger TR_participant_in_knowledge_session
+/*CREATE trigger TR_participant_in_knowledge_session
 before insert
 on
 participant_of_campaign
@@ -247,7 +247,7 @@ BEGIN
     where QUESTIONID = question_id;
 
     DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
-END;
+END;*/
 
 insert into employee (username, password) values ('admin', 'password123');
 insert into employee (username, password) values ('hcollerd1', 'mbownde1');
@@ -266,12 +266,30 @@ insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_qu
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc.','.NET', 'conferentie','hcollerd1', 2, 2, true);
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
 
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de outpuut van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (2, 'JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (4, 'JAVA', 'Wat is dependency injection', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (5, 'JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE, ATTACHEMENT) values (6, 'JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenterd', 1, 'multiple', 'interface first{void() method() throws IOException} interface first{void() method() throws IOException}');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (7, 'JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (8, 'JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (9, 'JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (10, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (11, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (12, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
+
 
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Ja', 1);
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Nee', 0);
+
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Beide', 1);
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Eerst', 0);
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Twee', 0);
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Error', 0);
+
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Ja', 1);
+insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Nee', 0);
 
 insert into PARTICIPANT (PARTICIPANTID) values (null);
 
