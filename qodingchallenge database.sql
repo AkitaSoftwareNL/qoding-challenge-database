@@ -306,9 +306,18 @@ insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) va
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Ja', 1);
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Nee', 0);
 
-insert into PARTICIPANT (PARTICIPANTID) values (null);
+insert into PARTICIPANT (PARTICIPANTID) values (null), (null), (null), (null), (null), (null), (null), (null);
 
 insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (1, 'Jax');
+insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (2, 'Bob');
+insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (3, 'Ricardo');
+insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (4, 'Bas');
+
+insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (5, 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
+insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (6, 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
+insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (7, 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp', 8823491928);
+insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (8, 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net', 6325212856);
+
 
 insert into PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, NAME) values (1, 'HC2 Holdings, Inc');
 
