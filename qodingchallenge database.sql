@@ -215,8 +215,8 @@ alter table QUESTION add constraint FK_CATEGORY_OF_QUESTION foreign key (CATEGOR
 alter table conference add constraint CHK_PHONE_EMAIL CHECK ((email IS NOT NULL) ||(phonenumber IS NOT NULL));
 
 alter table campaign add constraint CHK_CAMPAIGN_TIMELIMIT CHECK ((TIMELIMIT is null) || (TIMELIMIT > 0));
-
-/*CREATE trigger TR_participant_in_knowledge_session
+/*
+CREATE trigger TR_participant_in_knowledge_session
 before insert
 on
 participant_of_campaign
@@ -228,16 +228,30 @@ Begin
         end if;
     end if;
 end;
+*/
 
-CREATE PROCEDURE SP_multiplechoice_answers (IN question_id INT)
+/*CREATE PROCEDURE SP_multiplechoice_answers (IN question_id INT)
 BEGIN
-
-    IF ((SELECT COUNT(*) FROM tmp_multiple_choice_question where QUESTIONID = question_id) < 2) THEN
+    IF((SELECT ((SELECT COUNT(*)
+        FROM tmp_multiple_choice_question
+        where QUESTIONID = question_id)
+        +
+        (SELECT COUNT(*)
+        FROM multiple_choice_question
+        where QUESTIONID = question_id))
+        ) < 2) THEN
         DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
         signal sqlstate '45000' set message_text = 'A multiple choice question must have two or more answers';
     end if;
 
-    IF((SELECT count(*) from tmp_multiple_choice_question where QUESTIONID = question_id AND IS_CORRECT = 1) != 1) THEN
+    IF((SELECT ((SELECT COUNT(*)
+        FROM tmp_multiple_choice_question
+        where QUESTIONID = question_id AND IS_CORRECT = 1)
+            +
+        (SELECT COUNT(*)
+        FROM multiple_choice_question
+        where QUESTIONID = question_id AND IS_CORRECT = 1)))
+        != 1) THEN
         DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
         signal sqlstate '45000' set message_text = 'There cannot be more or less then one correct answer';
     end if;
@@ -247,7 +261,8 @@ BEGIN
     where QUESTIONID = question_id;
 
     DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
-END;*/
+END;
+*/
 
 insert into employee (username, password) values ('admin', 'password123');
 insert into employee (username, password) values ('hcollerd1', 'mbownde1');
@@ -271,7 +286,7 @@ insert into question (questionID, category_name, question, state, QUESTION_TYPE)
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (4, 'JAVA', 'Wat is dependency injection', 1, 'open');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (5, 'JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE, ATTACHEMENT) values (6, 'JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenterd', 1, 'multiple', 'interface first{void() method() throws IOException} interface first{void() method() throws IOException}');
+insert into question (questionID, category_name, question, state, QUESTION_TYPE, ATTACHMENT) values (6, 'JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenterd', 1, 'multiple', 'interface first{void() method() throws IOException} interface first{void() method() throws IOException}');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (7, 'JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (8, 'JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (9, 'JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
