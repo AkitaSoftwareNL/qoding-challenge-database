@@ -277,8 +277,8 @@ insert into category (category_name) values ('Python');
 insert into campaign_type (CAMPAIGN_TYPE) values ('conferentie');
 insert into CAMPAIGN_TYPE (CAMPAIGN_TYPE) values ('kennissessie');
 
-insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('HC2 Holdings, Inc.', 'JAVA', 'conferentie', 'admin', 1, 1, true);
-insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc.','.NET', 'conferentie','hcollerd1', 2, 2, true);
+insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('HC2 Holdings, Inc', 'JAVA', 'conferentie', 'admin', 1, 1, true);
+insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc','.NET', 'conferentie','hcollerd1', 2, 2, true);
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
 
 insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
