@@ -4,36 +4,6 @@ CREATE DATABASE qodingchallenge;
 
 USE qodingchallenge;
 
-drop table if exists CAMPAIGN;
-
-drop table if exists CAMPAIGN_CONTAINS_QUESTIONS;
-
-drop table if exists CAMPAIGN_TYPE;
-
-drop table if exists CATEGORY;
-
-drop table if exists CONFERENCE;
-
-drop table if exists EMPLOYEE;
-
-drop table if exists GIVEN_ANSWER;
-
-drop table if exists KNOWLEDGE_SESSION;
-
-drop table if exists MULTIPLE_CHOICE_QUESTION;
-
-drop table if exists OPEN_QUESTION;
-
-drop table if exists PARTICIPANT;
-
-drop table if exists PARTICIPANT_OF_CAMPAIGN;
-
-drop table if exists PROGRAMMING_QUESTION;
-
-drop table if exists QUESTION;
-
-drop table if exists STATE;
-
 create table CAMPAIGN
 (
    NAME                 varchar(255) not null,
