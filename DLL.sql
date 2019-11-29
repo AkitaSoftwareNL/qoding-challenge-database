@@ -29,18 +29,18 @@ insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_qu
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc','.NET', 'conferentie','hcollerd1', 2, 2, true);
 insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
 
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (2, 'JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (4, 'JAVA', 'Wat is dependency injection', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (5, 'JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE, ATTACHMENT) values (6, 'JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenteerd', 1, 'multiple', 'interface first \n{void() method() throws IOException \n } interface first \n {void() method() throws IOException \n}');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (7, 'JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (8, 'JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (9, 'JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (10, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (11, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (12, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'Wat is dependency injection', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE, ATTACHMENT) values ('JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenteerd', 1, 'multiple', 'interface first \n{void() method() throws IOException \n } interface first \n {void() method() throws IOException \n}');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+insert into question (category_name, question, state, QUESTION_TYPE) values ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
 
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Ja', 1);
 insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Nee', 0);

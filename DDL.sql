@@ -101,10 +101,10 @@ create table PROGRAMMING_QUESTION
 
 create table QUESTION
 (
-   QUESTIONID           smallint not null,
+   QUESTIONID           smallint not null AUTO_INCREMENT,
    CATEGORY_NAME        varchar(255) not null,
    QUESTION             varchar(255) not null,
-   STATE                bool not null,
+   STATE                bool not null default 1,
    QUESTION_TYPE        varchar(255),
    ATTACHMENT           varchar(4096),
    primary key (QUESTIONID)
@@ -173,6 +173,6 @@ alter table PROGRAMMING_QUESTION add constraint FK_TYPE_OF_QUESTION3 foreign key
 alter table QUESTION add constraint FK_CATEGORY_OF_QUESTION foreign key (CATEGORY_NAME)
       references CATEGORY (CATEGORY_NAME) on delete restrict on update restrict;
 
-alter table conference add constraint CHK_PHONE_EMAIL CHECK ((email IS NOT NULL) ||(phonenumber IS NOT NULL));
+alter table conference add constraint CHK_PHONE_EMAIL CHECK ((email IS NOT NULL) OR (phonenumber IS NOT NULL));
 
-alter table campaign add constraint CHK_CAMPAIGN_TIMELIMIT CHECK ((TIMELIMIT is null) || (TIMELIMIT > 0));
+alter table campaign add constraint CHK_CAMPAIGN_TIMELIMIT CHECK ((TIMELIMIT is null) OR (TIMELIMIT > 0));
