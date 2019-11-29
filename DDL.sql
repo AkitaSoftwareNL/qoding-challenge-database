@@ -78,12 +78,6 @@ create table MULTIPLE_CHOICE_QUESTION
    primary key (QUESTIONID, ANSWER_OPTIONS)
 );
 
-create table OPEN_QUESTION
-(
-   QUESTIONID           smallint not null,
-   primary key (QUESTIONID)
-);
-
 create table PARTICIPANT
 (
    PARTICIPANTID        smallint not null AUTO_INCREMENT,
@@ -165,9 +159,6 @@ alter table KNOWLEDGE_SESSION add constraint FK_TYPE_OF_PARTICIPANT foreign key 
       references PARTICIPANT (PARTICIPANTID) on delete restrict on update restrict;
 
 alter table MULTIPLE_CHOICE_QUESTION add constraint FK_TYPE_OF_QUESTION foreign key (QUESTIONID)
-      references QUESTION (QUESTIONID) on delete restrict on update restrict;
-
-alter table OPEN_QUESTION add constraint FK_TYPE_OF_QUESTION2 foreign key (QUESTIONID)
       references QUESTION (QUESTIONID) on delete restrict on update restrict;
 
 alter table PARTICIPANT_OF_CAMPAIGN add constraint FK_PARTICIPANT_OF_CAMPAIGN foreign key (PARTICIPANTID)
