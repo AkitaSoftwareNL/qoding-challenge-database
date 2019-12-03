@@ -1,74 +1,76 @@
-delete from given_answer;
-delete from participant_of_campaign;
-delete from campaign;
-delete from employee;
-delete from campaign_type;
-delete from multiple_choice_question;
-delete from state;
-delete from conference;
-delete from knowledge_session;
-delete from participant;
-delete from question;
-delete from category;
+DELETE FROM given_answer;
+DELETE FROM participant_of_campaign;
+DELETE FROM campaign;
+DELETE FROM employee;
+DELETE FROM campaign_type;
+DELETE FROM multiple_choice_question;
+DELETE FROM STATE;
+DELETE FROM conference;
+DELETE FROM knowledge_session;
+DELETE FROM participant;
+DELETE FROM question;
+DELETE FROM category;
 ALTER TABLE participant AUTO_INCREMENT = 1;
+ALTER TABLE campaign AUTO_INCREMENT = 1;
+ALTER TABLE question AUTO_INCREMENT = 1;
 
-insert into employee (username, password) values ('admin', 'password123');
-insert into employee (username, password) values ('hcollerd1', 'mbownde1');
-insert into employee (username, password) values ('apudney2', 'mwissby2');
-insert into employee (username, password) values ('brubinsohn3', 'hfriett3');
-insert into employee (username, password) values ('zpoole4', 'mhatchell4');
+INSERT INTO employee (USERNAME, PASSWORD) VALUES ('admin', 'password123');
+INSERT INTO employee (USERNAME, PASSWORD) VALUES ('hcollerd1', 'mbownde1');
+INSERT INTO employee (USERNAME, PASSWORD) VALUES ('apudney2', 'mwissby2');
+INSERT INTO employee (USERNAME, PASSWORD) VALUES ('brubinsohn3', 'hfriett3');
+INSERT INTO employee (USERNAME, PASSWORD) VALUES ('zpoole4', 'mhatchell4');
 
-insert into category (category_name) values ('JAVA');
-insert into category (category_name) values ('.NET');
-insert into category (category_name) values ('Python');
+INSERT INTO category (CATEGORY_NAME) VALUES ('JAVA');
+INSERT INTO category (CATEGORY_NAME) VALUES ('.NET');
+INSERT INTO category (CATEGORY_NAME) VALUES ('Python');
 
-insert into campaign_type (CAMPAIGN_TYPE) values ('conferentie');
-insert into CAMPAIGN_TYPE (CAMPAIGN_TYPE) values ('kennissessie');
+INSERT INTO campaign_type (CAMPAIGN_TYPE) VALUES ('conferentie');
+INSERT INTO CAMPAIGN_TYPE (CAMPAIGN_TYPE) VALUES ('kennissessie');
 
-insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('HC2 Holdings, Inc', 'JAVA', 'conferentie', 'admin', 1, 1, true);
-insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Syros Pharmaceuticals, Inc','.NET', 'conferentie','hcollerd1', 2, 2, true);
-insert into campaign (name, category_name, CAMPAIGN_TYPE, username, amount_of_questions, timelimit, state) values ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
+INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, AMOUNT_OF_QUESTIONS, TIMELIMIT, STATE) VALUES ('HC2 Holdings, Inc', 'JAVA', 'conferentie', 'admin', 1, 1, true);
+INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, AMOUNT_OF_QUESTIONS, TIMELIMIT, STATE) VALUES ('Syros Pharmaceuticals, Inc','.NET', 'conferentie','hcollerd1', 2, 2, true);
+INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, AMOUNT_OF_QUESTIONS, TIMELIMIT, STATE) VALUES ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie','apudney2',  3, 3, false);
 
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (1, 'JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (2, 'JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (3, 'JAVA', 'Kan je meerdere catch statements gebruiken voor EEN try', 1, 'multiple');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (4, 'JAVA', 'Wat is dependency injection', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (5, 'JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE, ATTACHMENT) values (6, 'JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenteerd', 1, 'multiple', 'interface first \n{void() method() throws IOException \n } interface first \n {void() method() throws IOException \n}');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (7, 'JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (8, 'JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (9, 'JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (10, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (11, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-insert into question (questionID, category_name, question, state, QUESTION_TYPE) values (12, 'JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Kan je meerdere catch STATEments gebruiken voor EEN try', 1, 'multiple');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Wat is dependency injection', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT) VALUES ('JAVA', 'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenteerd', 1, 'multiple', 'interface first \n{void() method() throws IOException \n } interface first \n {void() method() throws IOException \n}');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
 
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Ja', 1);
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (3, 'Nee', 0);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Ja', 1);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Nee', 0);
 
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Beide', 1);
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Eerst', 0);
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Twee', 0);
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (6, 'Error', 0);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (6, 'Beide', 1);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (6, 'Eerst', 0);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (6, 'Twee', 0);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (6, 'Error', 0);
 
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Ja', 1);
-insert into multiple_choice_question (questionID, ANSWER_OPTIONS, is_correct) values (12, 'Nee', 0);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (12, 'Ja', 1);
+INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (12, 'Nee', 0);
 
-insert into PARTICIPANT (PARTICIPANTID) values (null), (null), (null), (null), (null), (null), (null), (null);
+INSERT INTO PARTICIPANT (PARTICIPANTID) VALUES (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL);
 
-insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (1, 'Jax');
-insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (2, 'Bob');
-insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (3, 'Ricardo');
-insert into KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) values (4, 'Bas');
+INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (1, 'Jax');
+INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (2, 'Bob');
+INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (3, 'Ricardo');
+INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (4, 'Bas');
 
-insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (5, 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
-insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (6, 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
-insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (7, 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp', 8823491928);
-insert into conference (PARTICIPANTID, FIRSTNAME, insertion, LASTNAME, email, phonenumber) values (8, 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net', 6325212856);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (5, 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (6, 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (7, 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp', 8823491928);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (8, 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net', 6325212856);
 
-insert into PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, NAME) values (1, 'HC2 Holdings, Inc');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID) VALUES (1, 1);
 
-insert into STATE (STATEID, STATE_NAME) values (1, 'pending');
-insert into STATE (STATEID, STATE_NAME) values (2, 'correct');
-insert into STATE (STATEID, STATE_NAME) values (3, 'incorrect');
+INSERT INTO STATE (STATEID, STATE_NAME) VALUES (1, 'pending');
+INSERT INTO STATE (STATEID, STATE_NAME) VALUES (2, 'correct');
+INSERT INTO STATE (STATEID, STATE_NAME) VALUES (3, 'incorrect');
 
-insert into GIVEN_ANSWER (QUESTIONID, PARTICIPANTID, NAME, STATEID, GIVEN_ANSWER) values (3, 1, 'HC2 Holdings, Inc', 1, 'A');
+INSERT INTO GIVEN_ANSWER (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER) VALUES (3, 1, 1, 1, 'A');
