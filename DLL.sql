@@ -11,6 +11,8 @@ DELETE FROM participant;
 DELETE FROM question;
 DELETE FROM category;
 ALTER TABLE participant AUTO_INCREMENT = 1;
+ALTER TABLE campaign AUTO_INCREMENT = 1;
+ALTER TABLE question AUTO_INCREMENT = 1;
 
 INSERT INTO employee (USERNAME, PASSWORD) VALUES ('admin', 'password123');
 INSERT INTO employee (USERNAME, PASSWORD) VALUES ('hcollerd1', 'mbownde1');
