@@ -7,7 +7,7 @@ ON
 participant_of_campaign
 FOR EACH ROW
 BEGIN
-  IF ((SELECT campaign.CAMPAIGN_TYPE FROM campaign WHERE campaign.NAME = NEW.NAME) != 'conferentie') THEN
+  IF ((SELECT campaign.CAMPAIGN_TYPE FROM campaign WHERE campaign.CAMPAIGN_ID = NEW.CAMPAIGN_ID) != 'conferentie') THEN
 		IF ((SELECT count(*) FROM knowledge_session WHERE knowledge_session.PARTICIPANTID = NEW.PARTICIPANTID) = 0) Then
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'no nickname available for user of knowledge session';
         END IF;
