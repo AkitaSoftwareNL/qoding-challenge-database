@@ -49,3 +49,44 @@ BEGIN
 
     DELETE FROM tmp_multiple_choice_question WHERE QUESTIONID = question_id;
 END$$
+
+use qodingchallenge;
+DROP FUNCTION IF EXISTS split;
+DROP PROCEDURE IF EXISTS SP_MultipleChoiceQuestion;
+
+DELIMITER $$
+CREATE FUNCTION split( str VARCHAR(500), delchar VARCHAR(2), x INT )
+RETURNS VARCHAR(500)
+BEGIN
+RETURN SUBSTR(SUBSTRING_INDEX(str, delchar, x),
+LENGTH(SUBSTRING_INDEX(str, delchar, x-1))+IF(x > 1, 2, 1));
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE SP_MultipleChoiceQuestion(IN category_name VARCHAR(255), IN question VARCHAR(255), IN QUESTION_TYPE VARCHAR(255), 
+IN ATTACHMENT VARCHAR(4096), IN possibleAnswers VARCHAR(4096), IN is_correct VARCHAR(255), IN amount INT, IN answerSeparator VARCHAR(255))
+BEGIN
+	DECLARE i INT;
+    DECLARE subStringAnswer VARCHAR(255);
+    DECLARE subStringIsCorrect VARCHAR(255);
+    SET i = 1;
+    
+	INSERT INTO question(category_name, question, question_type, attachment) values (category_name, question, QUESTION_TYPE, ATTACHMENT);
+    
+    loop_label: LOOP
+		IF x > amount THEN
+			LEAVE loop_labels;
+		END IF;
+		
+        SET x = x + 1;
+		
+        SET subStringAnswer = split(possibleAnswers, answerSeparator, i);
+        SET subStringIsCorrect = split(is_correct, answerSeparator, i);
+																						/* HOE KOM IK HIERAAN? */
+		INSERT INTO multiple_choice_question(QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) values (questionID, subStringAnswer, subStringIsCorrect);
+            
+	END LOOP;    
+END $$
+DELIMITER ;
