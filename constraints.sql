@@ -1,4 +1,10 @@
+use qodingchallenge;
+
 DROP TRIGGER IF EXISTS TR_participant_in_knowledge_session;
+DROP PROCEDURE IF EXISTS SP_multiplechoice_answers;
+DROP PROCEDURE IF EXISTS SP_MultipleChoiceQuestion; 
+
+/*---------------------------------------------------------- */
 
 DELIMITER $$
 CREATE TRIGGER TR_participant_in_knowledge_session
@@ -14,9 +20,7 @@ BEGIN
   END IF;
 END$$
 
----------------------------------------------
-
-DROP PROCEDURE IF EXISTS SP_multiplechoice_answers;
+/*---------------------------------------------------------- */
 
 DELIMITER $$
 CREATE PROCEDURE SP_multiplechoice_answers (IN question_id INT)
@@ -30,6 +34,7 @@ BEGIN
         WHERE QUESTIONID = question_id))
         ) < 2) THEN
         DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
+        DELETE FROM question WHERE QUESTIONID = question_id;
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A multiple choice question must have two or more answers';
     END IF;
 
@@ -42,6 +47,7 @@ BEGIN
         WHERE QUESTIONID = question_id AND IS_CORRECT = 1)))
         != 1) THEN
         DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
+        DELETE FROM question WHERE QUESTIONID = question_id;
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'There cannot be more or less then one correct answer';
     END IF;
 
@@ -52,11 +58,7 @@ BEGIN
     DELETE FROM tmp_multiple_choice_question WHERE QUESTIONID = question_id;
 END$$
 
-----------------------------------------------------------------
-
-use qodingchallenge;
-
-DROP PROCEDURE IF EXISTS SP_MultipleChoiceQuestion; 
+/*---------------------------------------------------------- */
 
 DELIMITER $$
 CREATE PROCEDURE SP_MultipleChoiceQuestion(IN category_name VARCHAR(255), IN question VARCHAR(255), IN QUESTION_TYPE VARCHAR(255), 
@@ -84,10 +86,13 @@ BEGIN
         SET subStringIsCorrect = REPLACE(SUBSTRING(SUBSTRING_INDEX(is_correct, answerSeparator, i), 
 										LENGTH(SUBSTRING_INDEX(is_correct, answerSeparator, i -1)) + 1), answerSeparator, '');
 
-		INSERT INTO multiple_choice_question(QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) values (questionID, subStringAnswer, subStringIsCorrect);
-            
+		INSERT INTO tmp_multiple_choice_question(QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) values (questionID, subStringAnswer, subStringIsCorrect);
+		
+        CALL SP_multiplechoice_answers(QUESTIONID);
 	END LOOP;    
 END $$
 DELIMITER ;
 
-CALL SP_MultipleChoiceQuestion('Java', 'Does this work?', 'multiple', '', '&yes&no&', '&0&0&', '2', '&');
+/*---------------------------------------------------------- */
+
+/* CALL SP_MultipleChoiceQuestion('Java', 'Does this work?', 'multiple', '', '&yes&no&', '&0&0&', '2', '&'); */
