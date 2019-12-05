@@ -70,9 +70,10 @@ BEGIN
     DECLARE questionID INT;
 
     SET i = 1;
-    SET questionID = (SELECT LAST_INSERT_ID() as 'ID' FROM question group by 'ID') + 1;
     
 	INSERT INTO question(category_name, question, question_type, attachment) values (category_name, question, QUESTION_TYPE, ATTACHMENT);
+    
+	SET questionID = (SELECT LAST_INSERT_ID());
     
     loop_label: LOOP
 		IF i > amount THEN
@@ -88,8 +89,8 @@ BEGIN
 
 		INSERT INTO tmp_multiple_choice_question(QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) values (questionID, subStringAnswer, subStringIsCorrect);
 		
-        CALL SP_multiplechoice_answers(QUESTIONID);
-	END LOOP;    
+	END LOOP;  
+    CALL SP_multiplechoice_answers(questionID);
 END $$
 DELIMITER ;
 
