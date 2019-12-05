@@ -96,4 +96,3 @@ DELIMITER ;
 
 /*---------------------------------------------------------- */
 
-/* CALL SP_MultipleChoiceQuestion('Java', 'Does this work?', 'multiple', '', '&yes&no&', '&0&0&', '2', '&'); */
