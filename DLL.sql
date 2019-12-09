@@ -40,9 +40,9 @@ INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec egestas.', 1, 'open');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'dictum eleifend, nunc risus varius orci, in consequat enim diam', 1, 'open');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas', 1, 'open');
-INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
-INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris ut Duis risus odio, auctor vitae, aliquet', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida mauris mi. Duis risus odio, auctor vitae, aliquet', 1, 'open');
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'gravida ut mi. Duis risus odio, auctor vitae, aliquet', 1, 'multiple');
 
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Ja', 1);
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Nee', 0);
