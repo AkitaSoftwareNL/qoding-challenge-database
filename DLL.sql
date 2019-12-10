@@ -1,3 +1,6 @@
+/*Review script*/
+/*delete from given_answer where PARTICIPANTID = 1*/
+
 DELETE FROM given_answer;
 DELETE FROM participant_of_campaign;
 DELETE FROM campaign;
@@ -277,5 +280,3 @@ values (1, 6, 3, 1, 't'),
        (10, 6, 3, 1, 'f'),
        (11, 6, 3, 1, 'j'),
        (12, 6, 3, 1, 'Waar');
-
-/*delete from given_answer where PARTICIPANTID = 1*/
