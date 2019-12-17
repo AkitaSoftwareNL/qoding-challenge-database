@@ -7,6 +7,7 @@ DELETE FROM campaign;
 DELETE FROM employee;
 DELETE FROM campaign_type;
 DELETE FROM multiple_choice_question;
+DELETE FROM PROGRAMMING_QUESTION;
 DELETE FROM STATE;
 DELETE FROM conference;
 DELETE FROM knowledge_session;
@@ -70,6 +71,36 @@ INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JA
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Als een short het nummer 32,767 bevat en je de waarde wilt opslaan in de byte, welke error wordt er gegeven', 1, 'open');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Welke oprator binnen java wordt gebruikt voor modulus', 1, 'open');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Waar of niet waar, kan je een char array in een string zetten', 1, 'multiple');
+
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Maak een string vergelijker', 1, 'coding');
+INSERT INTO programming_question (QUESTIONID, STARTCODE, TESTCODE) VALUES (13, 'public class Code {
+    public static boolean equals(String a, String b) {
+        // imp
+    }
+}','import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class TestCode {
+
+    private Code sut;
+
+    @BeforeEach
+    void setUp() {
+        sut = new Code();
+    }
+
+    @Test
+    void Test1() {
+        Assertions.assertTrue(sut.equals("1", "1"));
+    }
+
+    @Test
+    void Test2() {
+        Assertions.assertTrue(sut.equals("2", "2"));
+    }
+}
+');
 
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Ja', 1);
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Nee', 0);
