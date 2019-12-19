@@ -7,13 +7,11 @@ DELETE FROM campaign;
 DELETE FROM employee;
 DELETE FROM campaign_type;
 DELETE FROM multiple_choice_question;
+DELETE FROM PROGRAMMING_QUESTION;
 DELETE FROM STATE;
 DELETE FROM conference;
-DELETE FROM knowledge_session;
-DELETE FROM participant;
 DELETE FROM question;
 DELETE FROM category;
-ALTER TABLE participant AUTO_INCREMENT = 1;
 ALTER TABLE campaign AUTO_INCREMENT = 1;
 ALTER TABLE question AUTO_INCREMENT = 1;
 
@@ -71,6 +69,36 @@ INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JA
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Welke oprator binnen java wordt gebruikt voor modulus', 1, 'open');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Waar of niet waar, kan je een char array in een string zetten', 1, 'multiple');
 
+INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE) VALUES ('JAVA', 'Maak een string vergelijker', 1, 'program');
+INSERT INTO programming_question (QUESTIONID, STARTCODE, TESTCODE) VALUES (13, 'public class Code {
+    public static boolean equals(String a, String b) {
+        // imp
+    }
+}','import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class TestCode {
+
+    private Code sut;
+
+    @BeforeEach
+    void setUp() {
+        sut = new Code();
+    }
+
+    @Test
+    void Test1() {
+        Assertions.assertTrue(sut.equals("1", "1"));
+    }
+
+    @Test
+    void Test2() {
+        Assertions.assertTrue(sut.equals("2", "2"));
+    }
+}
+');
+
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Ja', 1);
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (3, 'Nee', 0);
 
@@ -82,239 +110,232 @@ INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VA
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (12, 'Waar', 1);
 INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT) VALUES (12, 'Niet waar', 0);
 
-INSERT INTO PARTICIPANT (PARTICIPANTID) VALUES (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL), (NULL);
-
-INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (1, 'Jax');
-INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (2, 'Bob');
-INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (3, 'Ricardo');
-INSERT INTO KNOWLEDGE_SESSION (PARTICIPANTID, NICKNAME) VALUES (4, 'Bas');
-
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (5, 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (6, 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (7, 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp', 8823491928);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (8, 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net', 6325212856);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (9, 'Aimee', 'Ooba', 'Capner', 'acapner0@chicagotribune.com', 5806737459);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (10, 'Tristan', 'Jabberstorm', 'Doohey', 'tdoohey1@infoseek.co.jp', 1108986529);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (11, 'Gilberto', 'Yodel', 'Presland', 'gpresland2@economist.com', 4708705667);
-INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES (12, 'Ted', 'Realbuzz', 'Traise', 'ttraise3@nbcnews.com', 2924248629);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('9722a79b-7494-4ef2-a56e-31a27f63911c', 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp', 8823491928);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('00a94bb8-d00c-4244-bdf5-2051a18af5b3', 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net', 6325212856);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 'Aimee', 'Ooba', 'Capner', 'acapner0@chicagotribune.com', 5806737459);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('f65a7374-1af8-4c23-8d40-1bb3cc986c04', 'Tristan', 'Jabberstorm', 'Doohey', 'tdoohey1@infoseek.co.jp', 1108986529);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('080da1cc-db10-4da8-958c-fe983255cff4', 'Gilberto', 'Yodel', 'Presland', 'gpresland2@economist.com', 4708705667);
+INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER) VALUES ('6dbead39-df20-4c81-acec-eaefe11663ca', 'Ted', 'Realbuzz', 'Traise', 'ttraise3@nbcnews.com', 2924248629);
 
 /*If you add test data to given_answer for a campaign, the participent needs to be added in this table*/
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (5, 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (6, 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (7, 1, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (8, 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (9, 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (10, 1, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (11, 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (12, 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('9722a79b-7494-4ef2-a56e-31a27f63911c', 1, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('080da1cc-db10-4da8-958c-fe983255cff4', 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('6dbead39-df20-4c81-acec-eaefe11663ca', 1, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
 
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (5, 2, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (6, 2, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (7, 2, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (8, 2, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, '2019-12-04 15:00:23', '2019-12-04 17:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('9722a79b-7494-4ef2-a56e-31a27f63911c', 2, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
 
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (5, 3, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
-INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES (6, 3, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, '2019-12-04 15:00:23', '2019-12-05 18:03:23');
+INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED) VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
 
 INSERT INTO STATE (STATEID, STATE_NAME) VALUES (1, 'pending');
 INSERT INTO STATE (STATEID, STATE_NAME) VALUES (2, 'correct');
 INSERT INTO STATE (STATEID, STATE_NAME) VALUES (3, 'incorrect');
 
 INSERT INTO GIVEN_ANSWER (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-VALUES (1, 5, 1, 1, 'Hello world'),
-       (2, 5, 1, 1, 'Juist, idk'),
-       (3, 5, 1, 2, 'A'),
-       (4, 5, 1, 1, 'Dependency injection zorgt ervoor dat je geen handmatige injection meer hoeft te doen'),
-       (5, 5, 1, 1, 'jazeker'),
-       (6, 5, 1, 2, 'Beide'),
-       (7, 5, 1, 1, 'B'),
-       (8, 5, 1, 1, 'P'),
-       (9, 5, 1, 1, 'n'),
-       (10, 5, 1, 1, 'k'),
-       (11, 5, 1, 1, 'f'),
-       (12, 5, 1, 1, 'Waar');
+VALUES (1, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'Hello world'),
+       (2, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'Juist, idk'),
+       (3, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 2, 'A'),
+       (4, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'Dependency injection zorgt ervoor dat je geen handmatige injection meer hoeft te doen'),
+       (5, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'jazeker'),
+       (6, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 2, 'Beide'),
+       (7, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'B'),
+       (8, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'P'),
+       (9, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'n'),
+       (10, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'k'),
+       (11, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'f'),
+       (12, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, 1, 'Waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 6, 1, 1, 'U'),
-       (2, 6, 1, 1, 'N'),
-       (3, 6, 1, 2, 'Ja'),
-       (4, 6, 1, 1, 'H'),
-       (5, 6, 1, 1, 'p'),
-       (6, 6, 1, 3, 'Tweede'),
-       (7, 6, 1, 1, 'I'),
-       (8, 6, 1, 1, 'b'),
-       (9, 6, 1, 1, 'A'),
-       (10, 6, 1, 1, 's'),
-       (11, 6, 1, 1, 'L'),
-       (12, 6, 1, 2, 'waar');
+values (1, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'U'),
+       (2, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'N'),
+       (3, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 2, 'Ja'),
+       (4, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'H'),
+       (5, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'p'),
+       (6, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 3, 'Tweede'),
+       (7, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'I'),
+       (8, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'b'),
+       (9, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'A'),
+       (10, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 's'),
+       (11, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 1, 'L'),
+       (12, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 1, 2, 'waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 7, 1, 1, 'T'),
-       (2, 7, 1, 1, 'M'),
-       (3, 7, 1, 2, 'Ja'),
-       (4, 7, 1, 1, 'a'),
-       (5, 7, 1, 1, 'N'),
-       (6, 7, 1, 2, 'Beide'),
-       (7, 7, 1, 1, 'N'),
-       (8, 7, 1, 1, 'i'),
-       (9, 7, 1, 1, 'U'),
-       (10, 7, 1, 1, 'n'),
-       (11, 7, 1, 1, 'r'),
-       (12, 7, 1, 2, 'Waar');
+values (1, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'T'),
+       (2, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'M'),
+       (3, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 2, 'Ja'),
+       (4, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'a'),
+       (5, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'N'),
+       (6, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 2, 'Beide'),
+       (7, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'N'),
+       (8, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'i'),
+       (9, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'U'),
+       (10, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'n'),
+       (11, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 1, 'r'),
+       (12, '9722a79b-7494-4ef2-a56e-31a27f63911c', 1, 2, 'Waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 8, 1, 1, 'd'),
-       (2, 8, 1, 1, 'A'),
-       (3, 8, 1, 3, 'Nee'),
-       (4, 8, 1, 1, 'y'),
-       (5, 8, 1, 1, 'l'),
-       (6, 8, 1, 3, 'Eerst'),
-       (7, 8, 1, 1, 'J'),
-       (8, 8, 1, 1, 'T'),
-       (9, 8, 1, 1, 't'),
-       (10, 8, 1, 1, 'g'),
-       (11, 8, 1, 1, 'U'),
-       (12, 8, 1, 3, 'Niet waar');
+values (1, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'd'),
+       (2, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'A'),
+       (3, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 3, 'Nee'),
+       (4, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'y'),
+       (5, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'l'),
+       (6, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 3, 'Eerst'),
+       (7, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'J'),
+       (8, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'T'),
+       (9, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 't'),
+       (10, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'g'),
+       (11, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 1, 'U'),
+       (12, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 1, 3, 'Niet waar');
 
-
-
-insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 9, 1, 1, 'I'),
-       (2, 9, 1, 1, 'T'),
-       (3, 9, 1, 3, 'Nee'),
-       (4, 9, 1, 1, 'G'),
-       (5, 9, 1, 1, 'n'),
-       (6, 9, 1, 3, 'Error'),
-       (7, 9, 1, 1, 'D'),
-       (8, 9, 1, 1, 'C'),
-       (9, 9, 1, 1, 'c'),
-       (10, 9, 1, 1, 'H'),
-       (11, 9, 1, 1, 'p'),
-       (12, 9, 1, 2, 'waar');
-
-insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 10, 1, 1, 'X'),
-       (2, 10, 1, 1, 'P'),
-       (3, 10, 1, 2, 'Ja'),
-       (4, 10, 1, 1, 'X'),
-       (5, 10, 1, 1, 'I'),
-       (6, 10, 1, 3, 'Error'),
-       (7, 10, 1, 1, 'S'),
-       (8, 10, 1, 1, 'x'),
-       (9, 10, 1, 1, 'L'),
-       (10, 10, 1, 1, 'Y'),
-       (11, 10, 1, 1, 'D'),
-       (12, 10, 1, 2, 'waar');
-
-insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 11, 1, 1, 'H'),
-       (2, 11, 1, 1, 'P'),
-       (3, 11, 1, 3, 'Nee'),
-       (4, 11, 1, 1, 'h'),
-       (5, 11, 1, 1, 'S'),
-       (6, 11, 1, 2, 'Beide'),
-       (7, 11, 1, 1, 'T'),
-       (8, 11, 1, 1, 'P'),
-       (9, 11, 1, 1, 'd'),
-       (10, 11, 1, 1, 'A'),
-       (11, 11, 1, 1, 'A'),
-       (12, 11, 1, 2, 'Waar');
 
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 12, 1, 1, 'N'),
-       (2, 12, 1, 1, 'b'),
-       (3, 12, 1, 2, 'Ja'),
-       (4, 12, 1, 1, 'k'),
-       (5, 12, 1, 1, 'D'),
-       (6, 12, 1, 3, 'Error'),
-       (7, 12, 1, 1, 'r'),
-       (8, 12, 1, 1, 'K'),
-       (9, 12, 1, 1, 'r'),
-       (10, 12, 1, 1, 'M'),
-       (11, 12, 1, 1, 'c'),
-       (12, 12, 1, 2, 'Waar');
+values (1, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'I'),
+       (2, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'T'),
+       (3, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 3, 'Nee'),
+       (4, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'G'),
+       (5, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'n'),
+       (6, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 3, 'Error'),
+       (7, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'D'),
+       (8, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'C'),
+       (9, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'c'),
+       (10, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'H'),
+       (11, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 1, 'p'),
+       (12, '5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 1, 2, 'waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 5, 2, 1, 'A'),
-       (2, 5, 2, 1, 'k'),
-       (3, 5, 2, 3, 'Nee'),
-       (4, 5, 2, 1, 'r'),
-       (5, 5, 2, 1, 'B'),
-       (6, 5, 2, 2, 'Beide'),
-       (7, 5, 2, 1, 'X'),
-       (8, 5, 2, 1, 'd'),
-       (9, 5, 2, 1, 'h'),
-       (10, 5, 2, 1, 'g'),
-       (11, 5, 2, 1, 'Q'),
-       (12, 5, 2, 3, 'Niet waar');
+values (1, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'X'),
+       (2, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'P'),
+       (3, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 2, 'Ja'),
+       (4, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'X'),
+       (5, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'I'),
+       (6, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 3, 'Error'),
+       (7, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'S'),
+       (8, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'x'),
+       (9, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'L'),
+       (10, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'Y'),
+       (11, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 1, 'D'),
+       (12, 'f65a7374-1af8-4c23-8d40-1bb3cc986c04', 1, 2, 'waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 6, 2, 1, 'W'),
-       (2, 6, 2, 1, 'd'),
-       (3, 6, 2, 2, 'Ja'),
-       (4, 6, 2, 1, 'm'),
-       (5, 6, 2, 1, 'I'),
-       (6, 6, 2, 3, 'Eerste'),
-       (7, 6, 2, 1, 'X'),
-       (8, 6, 2, 1, 't'),
-       (9, 6, 2, 1, 'z'),
-       (10, 6, 2, 1, 'R'),
-       (11, 6, 2, 1, 'e'),
-       (12, 6, 2, 2, 'Waar');
+values (1, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'H'),
+       (2, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'P'),
+       (3, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 3, 'Nee'),
+       (4, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'h'),
+       (5, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'S'),
+       (6, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 2, 'Beide'),
+       (7, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'T'),
+       (8, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'P'),
+       (9, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'd'),
+       (10, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'A'),
+       (11, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 1, 'A'),
+       (12, '080da1cc-db10-4da8-958c-fe983255cff4', 1, 2, 'Waar');
+
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 7, 2, 1, 'E'),
-       (2, 7, 2, 1, 'C'),
-       (3, 7, 2, 3, 'Nee'),
-       (4, 7, 2, 1, 'u'),
-       (5, 7, 2, 1, 'M'),
-       (6, 7, 2, 3, 'Tweede'),
-       (7, 7, 2, 1, 'n'),
-       (8, 7, 2, 1, 'N'),
-       (9, 7, 2, 1, 'x'),
-       (10, 7, 2, 1, 'e'),
-       (11, 7, 2, 1, 'I'),
-       (12, 7, 2, 2, 'Waar');
+values (1, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'N'),
+       (2, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'b'),
+       (3, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 2, 'Ja'),
+       (4, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'k'),
+       (5, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'D'),
+       (6, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 3, 'Error'),
+       (7, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'r'),
+       (8, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'K'),
+       (9, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'r'),
+       (10, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'M'),
+       (11, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 1, 'c'),
+       (12, '6dbead39-df20-4c81-acec-eaefe11663ca', 1, 2, 'Waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 8, 2, 1, 'P'),
-       (2, 8, 2, 1, 'Y'),
-       (3, 8, 2, 2, 'Ja'),
-       (4, 8, 2, 1, 'A'),
-       (5, 8, 2, 1, 'J'),
-       (6, 8, 2, 2, 'Beide'),
-       (7, 8, 2, 1, 'R'),
-       (8, 8, 2, 1, 'p'),
-       (9, 8, 2, 1, 'a'),
-       (10, 8, 2, 1, 'v'),
-       (11, 8, 2, 1, 'w'),
-       (12, 8, 2, 2, 'Waar');
+values (1, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'A'),
+       (2, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'k'),
+       (3, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 3, 'Nee'),
+       (4, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'r'),
+       (5, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'B'),
+       (6, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 2, 'Beide'),
+       (7, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'X'),
+       (8, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'd'),
+       (9, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'h'),
+       (10, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'g'),
+       (11, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 1, 'Q'),
+       (12, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 2, 3, 'Niet waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 5, 3, 1, 'm'),
-       (2, 5, 3, 1, 'G'),
-       (3, 5, 3, 2, 'Ja'),
-       (4, 5, 3, 1, 'r'),
-       (5, 5, 3, 1, 'S'),
-       (6, 5, 3, 3, 'Error'),
-       (7, 5, 3, 1, 'c'),
-       (8, 5, 3, 1, 'a'),
-       (9, 5, 3, 1, 'W'),
-       (10, 5, 3, 1, 'B'),
-       (11, 5, 3, 1, 'k'),
-       (12, 5, 3, 2, 'Waar');
+values (1, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'W'),
+       (2, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'd'),
+       (3, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 2, 'Ja'),
+       (4, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'm'),
+       (5, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'I'),
+       (6, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 3, 'Eerste'),
+       (7, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'X'),
+       (8, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 't'),
+       (9, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'z'),
+       (10, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'R'),
+       (11, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 1, 'e'),
+       (12, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 2, 2, 'Waar');
 
 insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
-values (1, 6, 3, 1, 't'),
-       (2, 6, 3, 1, 'n'),
-       (3, 6, 3, 2, 'Ja'),
-       (4, 6, 3, 1, 'H'),
-       (5, 6, 3, 1, 'd'),
-       (6, 6, 3, 3, 'Eerste'),
-       (7, 6, 3, 1, 'y'),
-       (8, 6, 3, 1, 'x'),
-       (9, 6, 3, 1, 'Z'),
-       (10, 6, 3, 1, 'f'),
-       (11, 6, 3, 1, 'j'),
-       (12, 6, 3, 2, 'Waar');
+values (1, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'E'),
+       (2, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'C'),
+       (3, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 3, 'Nee'),
+       (4, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'u'),
+       (5, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'M'),
+       (6, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 3, 'Tweede'),
+       (7, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'n'),
+       (8, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'N'),
+       (9, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'x'),
+       (10, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'e'),
+       (11, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 1, 'I'),
+       (12, '9722a79b-7494-4ef2-a56e-31a27f63911c', 2, 2, 'Waar');
+
+insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
+values (1, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'P'),
+       (2, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'Y'),
+       (3, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 2, 'Ja'),
+       (4, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'A'),
+       (5, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'J'),
+       (6, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 2, 'Beide'),
+       (7, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'R'),
+       (8, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'p'),
+       (9, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'a'),
+       (10, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'v'),
+       (11, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 1, 'w'),
+       (12, '00a94bb8-d00c-4244-bdf5-2051a18af5b3', 2, 2, 'Waar');
+
+insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
+values (1, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'm'),
+       (2, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'G'),
+       (3, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 2, 'Ja'),
+       (4, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'r'),
+       (5, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'S'),
+       (6, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 3, 'Error'),
+       (7, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'c'),
+       (8,'8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'a'),
+       (9, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'W'),
+       (10, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'B'),
+       (11, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 1, 'k'),
+       (12, '8063be67-7fec-47c4-a9ab-e3d03a9968b3', 3, 2, 'Waar');
+
+insert into given_answer (QUESTIONID, PARTICIPANTID, CAMPAIGN_ID, STATEID, GIVEN_ANSWER)
+values (1, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 't'),
+       (2, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'n'),
+       (3, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 2, 'Ja'),
+       (4, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'H'),
+       (5, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'd'),
+       (6, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 3, 'Eerste'),
+       (7, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'y'),
+       (8, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'x'),
+       (9, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'Z'),
+       (10, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'f'),
+       (11, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 1, 'j'),
+       (12, '1452950a-8059-4bd1-b397-d2bd765d6b9b', 3, 2, 'Waar');
