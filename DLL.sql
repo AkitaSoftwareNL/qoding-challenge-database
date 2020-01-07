@@ -124,7 +124,8 @@ VALUES (13, 'public class Code {
     public static boolean equals(String a, String b) {
         // imp
     }
-}', 'import org.junit.jupiter.api.Assertions;
+}',
+'import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

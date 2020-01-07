@@ -1,24 +1,24 @@
 use qodingchallenge;
 
-DROP TRIGGER IF EXISTS TR_participant_in_knowledge_session;
+# DROP TRIGGER IF EXISTS TR_participant_in_knowledge_session;
 DROP PROCEDURE IF EXISTS SP_multiplechoice_answers;
 DROP PROCEDURE IF EXISTS SP_MultipleChoiceQuestion; 
 
 /*---------------------------------------------------------- */
 
-DELIMITER $$
-CREATE TRIGGER TR_participant_in_knowledge_session
-BEFORE INSERT
-ON
-participant_of_campaign
-FOR EACH ROW
-BEGIN
-  IF ((SELECT campaign.CAMPAIGN_TYPE FROM campaign WHERE campaign.CAMPAIGN_ID = NEW.CAMPAIGN_ID) != 'conferentie') THEN
-		IF ((SELECT count(*) FROM knowledge_session WHERE knowledge_session.PARTICIPANTID = NEW.PARTICIPANTID) = 0) Then
-            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'no nickname available for user of knowledge session';
-        END IF;
-  END IF;
-END$$
+# DELIMITER $$
+# CREATE TRIGGER TR_participant_in_knowledge_session
+# BEFORE INSERT
+# ON
+# participant_of_campaign
+# FOR EACH ROW
+# BEGIN
+#   IF ((SELECT campaign.CAMPAIGN_TYPE FROM campaign WHERE campaign.CAMPAIGN_ID = NEW.CAMPAIGN_ID) != 'conferentie') THEN
+# 		IF ((SELECT count(*) FROM knowledge_session WHERE knowledge_session.PARTICIPANTID = NEW.PARTICIPANTID) = 0) Then
+#             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'no nickname available for user of knowledge session';
+#         END IF;
+#   END IF;
+# END$$
 
 /*---------------------------------------------------------- */
 
@@ -45,7 +45,7 @@ BEGIN
         (SELECT COUNT(*)
         FROM multiple_choice_question
         WHERE QUESTIONID = question_id AND IS_CORRECT = 1)))
-        != 1) THEN
+        < 1) THEN
         DELETE FROM tmp_multiple_choice_question where QUESTIONID = question_id;
         DELETE FROM question WHERE QUESTIONID = question_id;
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'There cannot be more or less then one correct answer';
@@ -70,7 +70,8 @@ BEGIN
     DECLARE questionID INT;
 
     SET i = 1;
-    
+
+    START TRANSACTION;
 	INSERT INTO question(category_name, question, question_type, attachment) values (category_name, question, QUESTION_TYPE, ATTACHMENT);
     
 	SET questionID = (SELECT LAST_INSERT_ID());
@@ -91,6 +92,7 @@ BEGIN
 		
 	END LOOP;  
     CALL SP_multiplechoice_answers(questionID);
+    COMMIT;
 END $$
 DELIMITER ;
 
