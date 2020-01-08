@@ -62,7 +62,7 @@ VALUES ('Syros Pharmaceuticals, Inc', '.NET', 'conferentie', 'hcollerd1', 2, tru
 INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, TIMELIMIT, STATE)
 VALUES ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie', 'apudney2', 3, false);
 
-INSERT INTO question_type (TYPE) VALUES ('open'), ('multiple'), ('programming'), ('total');
+INSERT INTO question_type (TYPE) VALUES ('open'), ('multiple'), ('program'), ('total');
 
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
 (1, 1, 3);
