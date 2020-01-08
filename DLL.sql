@@ -62,7 +62,7 @@ VALUES ('Syros Pharmaceuticals, Inc', '.NET', 'conferentie', 'hcollerd1', 2, tru
 INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, TIMELIMIT, STATE)
 VALUES ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie', 'apudney2', 3, false);
 
-INSERT INTO question_type (TYPE) VALUES ('open'), ('multiple'), ('programming');
+INSERT INTO question_type (TYPE) VALUES ('open'), ('multiple'), ('programming'), ('total');
 
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
 (1, 1, 3);
@@ -70,20 +70,26 @@ INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
 (1, 2, 3);
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
 (1, 3, 3);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 4, 9);
 
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 1, 4);
+(2, 1, 4);
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 2, 2);
+(2, 2, 2);
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 3, 3);
+(2, 3, 3);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(2, 4, 9);
 
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 1, 1);
+(3, 1, 1);
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 2, 1);
+(3, 2, 1);
 INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
-(1, 3, 1);
+(3, 3, 1);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(3, 4, 8);
 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
 VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 3,
