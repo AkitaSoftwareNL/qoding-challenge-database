@@ -7,6 +7,7 @@ DELETE
 FROM given_answer_state;
 DELETE
 FROM participant_of_campaign;
+DELETE FROM amount_of_questions;
 DELETE
 FROM campaign;
 DELETE
@@ -23,6 +24,7 @@ DELETE
 FROM conference;
 DELETE
 FROM question;
+DELETE FROM question_type;
 DELETE
 FROM category;
 ALTER TABLE campaign
@@ -60,15 +62,31 @@ VALUES ('Syros Pharmaceuticals, Inc', '.NET', 'conferentie', 'hcollerd1', 2, tru
 INSERT INTO campaign (CAMPAIGN_NAME, CATEGORY_NAME, CAMPAIGN_TYPE, USERNAME, TIMELIMIT, STATE)
 VALUES ('Principal U.S. Small Cap Index ETF', 'Python', 'conferentie', 'apudney2', 3, false);
 
-INSERT INTO amount_of_questions (CAMPAIGN_ID, AMOUNT_OF_OPEN_QUESTIONS, AMOUNT_OF_MULTIPLE_QUESTIONS, AMOUNT_OF_PROGRAMMING_QUESTION, AMOUNT_TOTAL_QUESTIONS) VALUES
-(1, 3, 3, 3, 9);
-INSERT INTO amount_of_questions (CAMPAIGN_ID, AMOUNT_OF_OPEN_QUESTIONS, AMOUNT_OF_MULTIPLE_QUESTIONS, AMOUNT_OF_PROGRAMMING_QUESTION, AMOUNT_TOTAL_QUESTIONS) VALUES
-(2, 4, 2, 3, 9);
-INSERT INTO amount_of_questions (CAMPAIGN_ID, AMOUNT_OF_OPEN_QUESTIONS, AMOUNT_OF_MULTIPLE_QUESTIONS, AMOUNT_OF_PROGRAMMING_QUESTION, AMOUNT_TOTAL_QUESTIONS) VALUES
-(3, 1, 1, 1, 3);
+INSERT INTO question_type (TYPE) VALUES ('open'), ('multiple'), ('programming');
+
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 1, 3);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 2, 3);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 3, 3);
+
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 1, 4);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 2, 2);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 3, 3);
+
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 1, 1);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 2, 1);
+INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
+(1, 3, 1);
 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
-VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 'open',
+VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 3,
         '//Bestand a.java
         package p1;
         class A {
@@ -96,36 +114,36 @@ VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
 VALUES ('JAVA',
         'Juist of onjuist, er bestaat ter allen tijd een instantie van de class singelton. Licht je antwoord toe', 1,
-        'open');
+        1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Kan je meerdere catch STATEments gebruiken voor EEN try', 1, 'multiple');
+VALUES ('JAVA', 'Kan je meerdere catch STATEments gebruiken voor EEN try', 1, 2);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Wat is dependency injection', 1, 'open');
+VALUES ('JAVA', 'Wat is dependency injection', 1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 'open');
+VALUES ('JAVA', 'Welke methode moet je ook omschrijven als je de equals() methode overschrijft', 1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
 VALUES ('JAVA',
         'Welke methodes moeten geimplenmenteerd worden door een klasse die de volgende interfaces implenmenteerd', 1,
-        'multiple',
+        2,
         'interface first \n{void() method() throws IOException \n } interface first \n {void() method() throws IOException \n}');
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
 VALUES ('JAVA', 'Moet er bij het maken van een class altijd een constructor gemaakt worden? licht je antwoord toe', 1,
-        'open');
+       1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Bij het testen met junit, waarom is het niet netjes om static te gebruiken?', 1, 'open');
+VALUES ('JAVA', 'Bij het testen met junit, waarom is het niet netjes om static te gebruiken?', 1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Welk command binnen maven gebruik je om een .war bestand te genereren', 1, 'open');
+VALUES ('JAVA', 'Welk command binnen maven gebruik je om een .war bestand te genereren', 1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
 VALUES ('JAVA',
         'Als een short het nummer 32,767 bevat en je de waarde wilt opslaan in de byte, welke error wordt er gegeven',
-        1, 'open');
+        1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Welke oprator binnen java wordt gebruikt voor modulus', 1, 'open');
+VALUES ('JAVA', 'Welke oprator binnen java wordt gebruikt voor modulus', 1, 1);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Waar of niet waar, kan je een char array in een string zetten', 1, 'multiple');
+VALUES ('JAVA', 'Waar of niet waar, kan je een char array in een string zetten', 1, 2);
 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Maak een string vergelijker', 1, 'program');
+VALUES ('JAVA', 'Maak een string vergelijker', 1, 3);
 INSERT INTO programming_question (QUESTIONID, STARTCODE, TESTCODE)
 VALUES (13, 'public class Code {
     public static boolean equals(String a, String b) {
@@ -158,9 +176,9 @@ public class TestCode {
 ');
 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE)
-VALUES ('JAVA', 'Welk van de volgende twee statements zijn verkeerd over arrays in Java', 1, 'multiple');
+VALUES ('JAVA', 'Welk van de volgende twee statements zijn verkeerd over arrays in Java', 1, 2);
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
-VALUES ('JAVA', 'welk van de volgende beweringen zijn waar over packages', 1, 'multiple', '
+VALUES ('JAVA', 'welk van de volgende beweringen zijn waar over packages', 1, 2, '
 1) Elke class is deel van een package.
 2) Alle classes in een file zijn deel van een package.
 3) als er geen package is aangemaakt,
