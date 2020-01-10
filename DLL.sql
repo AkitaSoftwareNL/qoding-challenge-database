@@ -31,6 +31,8 @@ ALTER TABLE campaign
     AUTO_INCREMENT = 1;
 ALTER TABLE question
     AUTO_INCREMENT = 1;
+ALTER TABLE question_type
+    AUTO_INCREMENT = 1;
 
 INSERT INTO employee (USERNAME, PASSWORD)
 VALUES ('admin', 'password123');
@@ -92,7 +94,7 @@ INSERT INTO amount_of_questions (CAMPAIGN_ID, TYPE, AMOUNT) VALUES
 (3, 4, 8);
 
 INSERT INTO question (CATEGORY_NAME, QUESTION, STATE, QUESTION_TYPE, ATTACHMENT)
-VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 3,
+VALUES ('JAVA', 'Wat is de output van het draaien van de main methode in klasse B voor de volgende code', 1, 1,
         '//Bestand a.java
         package p1;
         class A {
