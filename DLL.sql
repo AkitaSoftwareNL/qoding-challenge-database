@@ -11,8 +11,6 @@ DELETE FROM amount_of_questions;
 DELETE
 FROM campaign;
 DELETE
-FROM employee;
-DELETE
 FROM campaign_type;
 DELETE
 FROM multiple_choice_question;
@@ -33,17 +31,6 @@ ALTER TABLE question
     AUTO_INCREMENT = 1;
 ALTER TABLE question_type
     AUTO_INCREMENT = 1;
-
-INSERT INTO employee (USERNAME, PASSWORD)
-VALUES ('admin', 'password123');
-INSERT INTO employee (USERNAME, PASSWORD)
-VALUES ('hcollerd1', 'mbownde1');
-INSERT INTO employee (USERNAME, PASSWORD)
-VALUES ('apudney2', 'mwissby2');
-INSERT INTO employee (USERNAME, PASSWORD)
-VALUES ('brubinsohn3', 'hfriett3');
-INSERT INTO employee (USERNAME, PASSWORD)
-VALUES ('zpoole4', 'mhatchell4');
 
 INSERT INTO category (CATEGORY_NAME)
 VALUES ('JAVA');
@@ -250,7 +237,7 @@ VALUES ('080da1cc-db10-4da8-958c-fe983255cff4', 'Gilberto', 'Yodel', 'Presland',
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
 VALUES ('6dbead39-df20-4c81-acec-eaefe11663ca', 'Ted', 'Realbuzz', 'Traise', 'ttraise3@nbcnews.com', 2924248629);
 
-/*If you add test data to given_answer for a campaign, the participent needs to be added in this table*/
+/*If you add test data to give`n_answer for a campaign, the participent needs to be added in this table*/
 INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED)
 VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 1, '2019-12-04 15:00:23', '2019-12-04 16:00:23');
 INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED)
