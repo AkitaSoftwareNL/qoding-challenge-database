@@ -217,25 +217,25 @@ INSERT INTO multiple_choice_question (QUESTIONID, ANSWER_OPTIONS, IS_CORRECT)
 VALUES (15, '4', 0);
 
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
-VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', 2219773471);
+VALUES ('8063be67-7fec-47c4-a9ab-e3d03a9968b3', 'Gray', null, 'Snare', 'gsnare0@xinhuanet.com', '2219773471');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
-VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', 3896612994);
+VALUES ('1452950a-8059-4bd1-b397-d2bd765d6b9b', 'Germayne', null, 'Greated', 'ggreated1@google.com.hk', '3896612994');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
 VALUES ('9722a79b-7494-4ef2-a56e-31a27f63911c', 'Neda', 'ncommander2', 'Commander', 'ncommander2@google.co.jp',
-        8823491928);
+        '8823491928');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
 VALUES ('00a94bb8-d00c-4244-bdf5-2051a18af5b3', 'Dav', 'dsilverlock3', 'Silverlock', 'dsilverlock3@discuz.net',
-        6325212856);
+        '6325212856');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
-VALUES ('5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 'Aimee', 'Ooba', 'Capner', 'acapner0@chicagotribune.com', 5806737459);
+VALUES ('5ffab0bf-770d-40ea-9b31-be2a0c32ac33', 'Aimee', 'Ooba', 'Capner', 'acapner0@chicagotribune.com', '5806737459');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
 VALUES ('f65a7374-1af8-4c23-8d40-1bb3cc986c04', 'Tristan', 'Jabberstorm', 'Doohey', 'tdoohey1@infoseek.co.jp',
-        1108986529);
+        '1108986529');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
 VALUES ('080da1cc-db10-4da8-958c-fe983255cff4', 'Gilberto', 'Yodel', 'Presland', 'gpresland2@economist.com',
-        4708705667);
+        '4708705667');
 INSERT INTO conference (PARTICIPANTID, FIRSTNAME, INSERTION, LASTNAME, EMAIL, PHONENUMBER)
-VALUES ('6dbead39-df20-4c81-acec-eaefe11663ca', 'Ted', 'Realbuzz', 'Traise', 'ttraise3@nbcnews.com', 2924248629);
+VALUES ('6dbead39-df20-4c81-acec-eaefe11663ca', 'Ted', 'Realbuzz', 'Traise', 'ttraise3@nbcnews.com', '2924248629');
 
 /*If you add test data to give`n_answer for a campaign, the participent needs to be added in this table*/
 INSERT INTO PARTICIPANT_OF_CAMPAIGN (PARTICIPANTID, CAMPAIGN_ID, TIME_STARTED, TIME_ENDED)
